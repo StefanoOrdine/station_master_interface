@@ -1,6 +1,7 @@
 # StationMasterInterface
 
-This is a possible front-end application that exploit [station_master](http://rubygems.org/gems/station_master) gem to build a station display real-time simulation.
+This is a possible front-end application that exploits [station_master](http://rubygems.org/gems/station_master) gem to build a real-time simulation of a station display.
+This application is made with Sinatra web framework and bootstrap as front-end framework.
 
 ## Changelog
 
