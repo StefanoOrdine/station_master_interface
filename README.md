@@ -4,7 +4,7 @@ This is a possible front-end application that exploit [station_master](http://ru
 
 ## Changelog
 
-### Next Release
+### 0.0.1
 
 - First working draft
 
