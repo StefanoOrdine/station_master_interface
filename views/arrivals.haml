@@ -1,0 +1,7 @@
+.row
+  .col-md-12
+    %h1 Arrivi
+    %ul
+      - arrivals.each do |arrival|
+        %li
+          = [arrival.train_code, arrival.origin, arrival.time, arrival.delay, arrival.platform].join(" | ")

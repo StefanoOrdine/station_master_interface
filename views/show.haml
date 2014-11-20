@@ -1,0 +1,15 @@
+.row
+  .col-md-12
+    %h1 Partenze
+    %ul
+      - departures.each do |departure|
+        %li
+          = [departure.train_code, departure.destination, departure.time, departure.delay, departure.platform].join(" | ")
+
+.row
+  .col-md-12
+    %h1 Arrivi
+    %ul
+      - arrivals.each do |arrival|
+        %li
+          = [arrival.train_code, arrival.origin, arrival.time, arrival.delay, arrival.platform].join(" | ")

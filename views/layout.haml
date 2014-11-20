@@ -1,0 +1,76 @@
+!!! 5
+
+-# paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+
+-# <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+-# <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+-# <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+-# <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+%html.no-js{:lang => "it"}
+
+    %head
+
+        -# ==========================================================================
+        -# Head
+        -# ==========================================================================
+
+        %meta{:charset => "utf-8"}
+
+        %meta{:"http-equiv" => "X-UA-Compatible", :content => "IE=edge"}
+
+        %title
+        %meta{:name => "description", :content => ""}
+        -# %meta{:name => "keywords", :content => ""}
+        -# %meta{:name => "author", :content => ""}
+
+        -# Mobile
+        -# ==========================================================================
+
+        %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
+
+        -# RSS
+        -# ==========================================================================
+
+        -# %link{:rel => "alternate", :type => "application/rss+xml", :title => "RSS", :href => "http://feeds.feedburner.com/FEEDNAME"}
+
+        -# Favicon
+        -# ==========================================================================
+
+        %link{:href => "/favicon.ico", :rel => "shortcut icon"}
+
+        -# CSS
+        -# ==========================================================================
+
+        %link{:href=>"//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css", :rel=>"stylesheet"}
+
+        -# JS
+        -# ==========================================================================
+
+
+    %body
+
+        -# ==========================================================================
+        -# Content
+        -# ==========================================================================
+        .container
+            = yield
+
+        -# JS
+        -# ==========================================================================
+
+        -# jQuery
+
+        %script{:type => "text/javascript", :src => "//code.jquery.com/jquery-1.10.2.js"}
+        %script{:type => "text/javascript", :src => "//code.jquery.com/ui/1.11.2/jquery-ui.js"}
+
+
+        -# Custom JS
+
+        %script{:src => "/javascripts/layout.js"}
+
+        -#
+        -# Asynchronous Google Analytics
+        -# Change UA-XXXXX-X to be your site's ID
+        -# mathiasbynens.be/notes/async-analytics-snippet
+        -#
