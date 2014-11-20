@@ -1,5 +1,3 @@
-
-
 # StationMasterInterface
 
 This is a possible front-end application that exploit [station_master](http://rubygems.org/gems/station_master) gem to build a station display real-time simulation.
