@@ -1,7 +1,21 @@
 .row
-  .col-md-12
+  .col-xs-12
     %h1 Partenze
-    %ul
-      - departures.each do |departure|
-        %li
-          = [departure.train_code, departure.destination, departure.time, departure.delay, departure.platform].join(" | ")
+    %table
+      %theah
+        %tr
+          %th treno
+          %th
+          %th destinazione
+          %th orario
+          %th ritardo
+          %th binario
+      %tbody
+        - departures.each do |departure|
+          %tr
+            %td
+            %td= departure.train_code
+            %td= departure.destination
+            %td= departure.time.strftime("%H:%M")
+            %td= departure.delay if departure.delay != 0
+            %td= departure.platform

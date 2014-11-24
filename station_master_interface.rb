@@ -1,5 +1,9 @@
 require 'sinatra'
 require 'station_master'
+
+$LOAD_PATH.unshift(File.dirname(__FILE__))
+require 'lib/services'
+
 require 'haml'
 require 'pry'
 
@@ -11,10 +15,7 @@ get '/' do
 end
 
 get '/autocomplete' do
-  StationMaster::Station.find_by_city(params[:term])
-    .inject([]) do |array, (key, value)|
-      array << { value: key, key: value }
-    end.to_json
+  Services::Station::Autocomplete.call(params[:term]).to_json
 end
 
 get '/show' do
@@ -22,14 +23,14 @@ get '/show' do
 
   case params[:view_mode]
     when 'departures' then haml :departures, locals: {
-      departures: StationMaster::Schedule.find_station_departures(params[:station_code]).first(5)
+      departures: Services::Schedule::Departure.call(params[:station_code], 20)
     }
     when 'arrivals' then haml :arrivals, locals: {
-      arrivals: StationMaster::Schedule.find_station_arrivals(params[:station_code]).first(5)
+      arrivals: Services::Schedule::Arrival.call(params[:station_code], 20),
     }
     else haml :show, locals: {
-      departures: StationMaster::Schedule.find_station_departures(params[:station_code]).first(5),
-      arrivals: StationMaster::Schedule.find_station_arrivals(params[:station_code]).first(5)
+      departures: Services::Schedule::Departure.call(params[:station_code], 10),
+      arrivals: Services::Schedule::Arrival.call(params[:station_code], 10)
     }
   end
 end

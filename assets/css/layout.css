@@ -1,0 +1,22 @@
+html, body {
+  margin:0;
+  padding:0;
+  height:100%;
+}
+
+body{
+  font: 300 18px Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #333333;
+  color: #DEDEDE;
+}
+
+.emphasis {
+  color: #ffb700;
+}
+
+.form-control:focus {
+  border-color: #ffb700;
+  outline: 0;
+  -webkit-box-shadow: inset 20px 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+  box-shadow: inset 20px 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
