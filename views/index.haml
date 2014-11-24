@@ -1,27 +1,28 @@
-.row
-  .col-xs-4.col-xs-offset-4
-    %h1
-      Conosci gli Orari dei Treni in
-      %span.emphasis
-        Tempo Reale
-      delle Stazioni Ferroviarie Italiane.
-    %form{role: 'form', action:'show'}
-      .form-group.text-center
-        .input-group
-          %input{type: "text", id: "search_city", class: "form-control", placeholder: "Inserisci nome città"}
-          %input{type: "hidden", name: "station_code", id: "station_code", value: ""}
-          %span.input-group-btn
-            %button{type: "submit", class: "btn btn-default"} Mostra Orari
-      .form-group
-        .radio
-          %label
-            %input{type: "radio", name: "view_mode", value: "both", checked: true}
-            Partenze e Arrivi
-        .radio
-          %label
-            %input{type: "radio", name: "view_mode", value: "departures"}
-            Partenze
-        .radio
-          %label
-            %input{type: "radio", name: "view_mode", value: "arrivals"}
-            Arrivi
+.container
+  .row
+    .col-xs-4.col-xs-offset-4
+      %h1
+        Conosci gli Orari dei Treni in
+        %span.emphasis
+          Tempo Reale
+        delle Stazioni Ferroviarie Italiane.
+      %form{role: 'form', action:'show'}
+        .form-group.text-center
+          .input-group
+            %input{type: "text", id: "search_city", class: "form-control", placeholder: "Inserisci nome città"}
+            %input{type: "hidden", name: "station_code", id: "station_code", value: ""}
+            %span.input-group-btn
+              %button{type: "submit", class: "btn btn-default"} Mostra Orari
+        .form-group
+          .radio
+            %label
+              %input{type: "radio", name: "view_mode", value: "both", checked: true}
+              Partenze e Arrivi
+          .radio
+            %label
+              %input{type: "radio", name: "view_mode", value: "departures"}
+              Partenze
+          .radio
+            %label
+              %input{type: "radio", name: "view_mode", value: "arrivals"}
+              Arrivi

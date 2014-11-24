@@ -8,7 +8,10 @@ require 'haml'
 require 'pry'
 
 set :haml, format: :html5
+
 set :public_folder, File.dirname(__FILE__) + '/assets'
+
+set :bind, '192.168.2.14'
 
 get '/' do
   haml :index

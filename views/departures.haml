@@ -1,21 +1,38 @@
-.row
-  .col-xs-12
-    %h1 Partenze
-    %table
-      %theah
-        %tr
-          %th treno
-          %th
-          %th destinazione
-          %th orario
-          %th ritardo
-          %th binario
-      %tbody
-        - departures.each do |departure|
-          %tr
-            %td
-            %td= departure.train_code
-            %td= departure.destination
-            %td= departure.time.strftime("%H:%M")
-            %td= departure.delay if departure.delay != 0
-            %td= departure.platform
+%link{ :rel => "stylesheet", :href => "/css/schedule.css" }
+
+%span.schedule-title Partenze
+Departures
+%img.logo-rfi{src: '/images/logoRFI.png'}
+%table.table
+  %thead
+    %tr
+      %th
+        %span.schedule-title treno
+        %br
+        train
+      %th
+      %th
+        %span.schedule-title destinazione
+        %br
+        destination
+      %th
+        %span.schedule-title orario
+        %br
+        time
+      %th
+        %span.schedule-title ritardo
+        %br
+        delay
+      %th
+        %span.schedule-title binario
+        %br
+        platform
+  %tbody
+    - departures.each do |departure|
+      %tr
+        %td
+        %td= departure.train_code
+        %td= departure.destination
+        %td= departure.time.strftime("%H:%M")
+        %td= departure.delay if departure.delay != 0
+        %td= departure.platform

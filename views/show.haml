@@ -1,43 +1,75 @@
-.row
-  .col-xs-12
-    %h1 Partenze
-    %table
-      %theah
-        %tr
-          %th treno
-          %th
-          %th destinazione
-          %th orario
-          %th ritardo
-          %th binario
-      %tbody
-        - departures.each do |departure|
-          %tr
-            %td
-            %td= departure.train_code
-            %td= departure.destination
-            %td= departure.time.strftime("%H:%M")
-            %td= departure.delay if departure.delay != 0
-            %td= departure.platform
+%link{ :rel => "stylesheet", :href => "/css/schedule.css" }
 
-.row
-  .col-xs-12
-    %h1 Arrivi
-    %table
-      %theah
-        %tr
-          %th treno
-          %th
-          %th provenienza
-          %th orario
-          %th ritardo
-          %th binario
-      %tbody
-        - arrivals.each do |arrival|
-          %tr
-            %td
-            %td= arrival.train_code
-            %td= arrival.origin
-            %td= arrival.time.strftime("%H:%M")
-            %td= arrival.delay if arrival.delay != 0
-            %td= arrival.platform
+%span.schedule-title Partenze
+Departures
+%img.logo-rfi{src: '/images/logoRFI.png'}
+%table.table
+  %thead
+    %tr
+      %th
+        %span.schedule-title treno
+        %br
+        train
+      %th
+      %th
+        %span.schedule-title destinazione
+        %br
+        destination
+      %th
+        %span.schedule-title orario
+        %br
+        time
+      %th
+        %span.schedule-title ritardo
+        %br
+        delay
+      %th
+        %span.schedule-title binario
+        %br
+        platform
+  %tbody
+    - departures.each do |departure|
+      %tr
+        %td
+        %td= departure.train_code
+        %td= departure.destination
+        %td= departure.time.strftime("%H:%M")
+        %td= departure.delay if departure.delay != 0
+        %td= departure.platform
+
+%span.schedule-title Arrivi
+Arrivals
+%img.logo-rfi{src: '/images/logoRFI.png'}
+%table.table
+  %thead
+    %tr
+      %th
+        %span.schedule-title treno
+        %br
+        train
+      %th
+      %th
+        %span.schedule-title provenienza
+        %br
+        origin
+      %th
+        %span.schedule-title orario
+        %br
+        time
+      %th
+        %span.schedule-title ritardo
+        %br
+        delay
+      %th
+        %span.schedule-title binario
+        %br
+        platform
+  %tbody
+    - arrivals.each do |arrival|
+      %tr
+        %td
+        %td= arrival.train_code
+        %td= arrival.origin
+        %td= arrival.time.strftime("%H:%M")
+        %td= arrival.delay if arrival.delay != 0
+        %td= arrival.platform

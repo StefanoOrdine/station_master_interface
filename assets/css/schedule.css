@@ -1,0 +1,39 @@
+body {
+  font: 400 18px Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: black;
+  color: white;
+}
+
+h1 {
+  background-color: black;
+}
+
+table > thead {
+  background-color: yellow;
+  color: black;
+}
+
+table > tbody > tr:nth-child(even) {
+  background-color: white;
+  color: black;
+}
+
+table > tbody > tr:nth-child(odd) {
+  background-color: black;
+  color: white;
+}
+
+table > tfoot {
+  background-color: yellow;
+  color: black;
+}
+
+.schedule-title {
+   font-weight: bold;
+   font-size: 30px;
+   padding-right: 20px;
+}
+
+.logo-rfi {
+  float: right;
+}
