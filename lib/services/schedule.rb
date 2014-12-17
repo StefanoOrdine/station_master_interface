@@ -11,7 +11,10 @@ module Services
       end
 
       def call!
-        StationMaster::Schedule.find_station_departures(station_code).sort!{ |a, b| a.time <=> b.time }.first(entries_count)
+        StationMaster::Schedule.find_station_departures(station_code)
+          .select { |schedule| schedule.time >= Time.now }
+          .sort!{ |a, b| a.time <=> b.time }
+          .first(entries_count)
       end
     end
 
@@ -26,7 +29,10 @@ module Services
       end
 
       def call!
-        StationMaster::Schedule.find_station_arrivals(station_code).sort!{ |a, b| a.time <=> b.time }.first(entries_count)
+        StationMaster::Schedule.find_station_arrivals(station_code)
+          .select { |schedule| schedule.time >= Time.now }
+          .sort!{ |a, b| a.time <=> b.time }
+          .first(entries_count)
       end
     end
   end

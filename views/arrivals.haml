@@ -1,9 +1,10 @@
 %link{ :rel => "stylesheet", :href => "/css/schedule.css" }
 
-%span.schedule-title Arrivi
-Arrivals
+%span.schedules-title-ita Arrivi
+%span.schedules-title-eng Arrivals
 %img.logo-rfi{src: '/images/logoRFI.png'}
-%table.table
+%span.schedules-title-ita.current-time
+%table.table#arrivals
   %thead
     %tr
       %th
@@ -27,12 +28,4 @@ Arrivals
         %span.schedule-title binario
         %br
         platform
-  %tbody
-    - arrivals.each do |arrival|
-      %tr
-        %td
-        %td= arrival.train_code
-        %td= arrival.origin
-        %td= arrival.time.strftime("%H:%M")
-        %td= arrival.delay if arrival.delay != 0
-        %td= arrival.platform
+  %tbody{:"data-schedule-count" => 20}

@@ -1,9 +1,10 @@
 %link{ :rel => "stylesheet", :href => "/css/schedule.css" }
 
-%span.schedule-title Partenze
-Departures
+%span.schedules-title-ita Partenze
+%span.schedules-title-eng Departures
 %img.logo-rfi{src: '/images/logoRFI.png'}
-%table.table
+%span.schedules-title-ita.current-time
+%table.table#departures
   %thead
     %tr
       %th
@@ -27,12 +28,4 @@ Departures
         %span.schedule-title binario
         %br
         platform
-  %tbody
-    - departures.each do |departure|
-      %tr
-        %td
-        %td= departure.train_code
-        %td= departure.destination
-        %td= departure.time.strftime("%H:%M")
-        %td= departure.delay if departure.delay != 0
-        %td= departure.platform
+  %tbody{:"data-schedule-count" => 20}

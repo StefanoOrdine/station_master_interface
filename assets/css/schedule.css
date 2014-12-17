@@ -1,39 +1,60 @@
 body {
-  font: 400 18px Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Hind', sans-serif;
   background: black;
   color: white;
+  height: 100%;
+  width: 100%;
+
 }
 
 h1 {
   background-color: black;
 }
 
+table {
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+}
+
 table > thead {
-  background-color: yellow;
+  background-color: #FFEE00;
   color: black;
 }
 
 table > tbody > tr:nth-child(even) {
-  background-color: white;
+  background-color: #FFFDE8;
   color: black;
 }
 
 table > tbody > tr:nth-child(odd) {
   background-color: black;
-  color: white;
+  color: #FFFDE8;
 }
 
-table > tfoot {
-  background-color: yellow;
-  color: black;
+.schedules-title-ita {
+  font-weight: bold;
+  font-size: 50px;
+  padding-right: 40px;
+}
+
+.schedules-title-eng  {
+  font-size: 35px;
 }
 
 .schedule-title {
    font-weight: bold;
-   font-size: 30px;
-   padding-right: 20px;
+   font-size: 24px;
+}
+
+.current-time {
+  float: right;
+  font-weight: bold;
+  font-size: 50px;
+  padding-right: 150px;
 }
 
 .logo-rfi {
   float: right;
+  height: 60px;
 }

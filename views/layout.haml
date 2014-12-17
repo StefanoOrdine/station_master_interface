@@ -1,7 +1,5 @@
 !!! 5
 
--# paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
-
 -# <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 -# <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
 -# <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
@@ -42,9 +40,12 @@
         -# CSS
         -# ==========================================================================
 
-        %link{ :rel => "stylesheet", :href=>"//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" }
-        %link{ :rel => "stylesheet", :href => "//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" }
-        %link{ :rel => "stylesheet", :href => "/css/layout.css" }
+        %link{:href => "http://fonts.googleapis.com/css?family=Hind:300,700", :rel => "stylesheet", :type => "text/css"}/
+        %link{ :rel => "stylesheet", :href=>"//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" }/
+        %link{ :rel => "stylesheet", :href => "//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" }/
+        %link{ :rel => "stylesheet", :href => "/css/layout.css" }/
+        - if env['REQUEST_PATH'] =~ /\/show/
+            %link{ :rel => "stylesheet", :href => "/css/schedule.css" }/
 
         -# JS
         -# ==========================================================================
@@ -65,11 +66,15 @@
         %script{:type => "text/javascript", :src => "//code.jquery.com/jquery-1.10.2.js"}
         %script{:type => "text/javascript", :src => "//code.jquery.com/ui/1.11.2/jquery-ui.js"}
 
+        -# UnderscoreJS
+
+        %script{:type => "text/javascript", :src => "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"}
 
         -# Custom JS
 
         %script{:src => "/javascripts/layout.js"}
-
+        - if env['REQUEST_PATH'] =~ /\/show/
+            %script{:src => "/javascripts/schedule.js"}
         -#
         -# Asynchronous Google Analytics
         -# Change UA-XXXXX-X to be your site's ID

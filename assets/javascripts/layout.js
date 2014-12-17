@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  // autocomplete
   $('#search_city').autocomplete({
     select: function( event, ui ) {
       $("#station_code").val(ui.item.key);
