@@ -5,7 +5,6 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'lib/services'
 
 require 'haml'
-require 'pry'
 
 set :haml, format: :html5
 
