@@ -11,7 +11,7 @@ module Services
       end
 
       def call!
-        StationMaster::Schedule.find_station_departures(station_code, Time.now + 5 hours)
+        StationMaster::Schedule.find_station_departures(station_code, Time.now + 5.hours)
           .select { |schedule| schedule.time >= Time.now + 5 hours } # TODO fix me from station master
           .sort!{ |a, b| a.time <=> b.time }
           .first(entries_count)
@@ -29,7 +29,7 @@ module Services
       end
 
       def call!
-        StationMaster::Schedule.find_station_arrivals(station_code, Time.now + 5 hours)
+        StationMaster::Schedule.find_station_arrivals(station_code, Time.now + 5.hours)
           .select { |schedule| schedule.time >= Time.now + 5 hours } # TODO fix me from station master
           .sort!{ |a, b| a.time <=> b.time }
           .first(entries_count)
