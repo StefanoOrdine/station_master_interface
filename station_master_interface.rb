@@ -13,7 +13,7 @@ class StationMasterInterface < Sinatra::Base
   set :bind, '192.168.2.14'
   set :bind, 'localhost'
 
-  set :time_zone, 'Rome'
+  set :time_zone, StationMaster::TIME_ZONE
 
   get '/' do
     haml :index
@@ -46,6 +46,6 @@ class StationMasterInterface < Sinatra::Base
 
   get '/current_time' do
     content_type :text
-    Time.now.in_time_zone('Rome').strftime('%H:%M')
+    Time.now.in_time_zone(settings.time_zone).strftime('%H:%M')
   end
 end
