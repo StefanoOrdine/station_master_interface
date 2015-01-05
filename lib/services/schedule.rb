@@ -12,7 +12,7 @@ module Services
 
       def call!
         StationMaster::Schedule.find_station_departures(station_code)
-          .select { |schedule| schedule.time >= Time.now.in_time_zone('settings.time_zone') }
+          .select { |schedule| schedule.time >= Time.now.in_time_zone(settings.time_zone) }
           .sort!{ |a, b| a.time <=> b.time }
           .first(entries_count)
       end
@@ -30,7 +30,7 @@ module Services
 
       def call!
         StationMaster::Schedule.find_station_arrivals(station_code)
-          .select { |schedule| schedule.time >= Time.now.in_time_zone('settings.time_zone') }
+          .select { |schedule| schedule.time >= Time.now.in_time_zone(settings.time_zone) }
           .sort!{ |a, b| a.time <=> b.time }
           .first(entries_count)
       end
