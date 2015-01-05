@@ -11,8 +11,8 @@ module Services
       end
 
       def call!
-        StationMaster::Schedule.find_station_departures(station_code)
-          .select { |schedule| schedule.time >= Time.now.in_time_zone(StationMaster::TIME_ZONE) } # workaround! TODO  raise decoupling by handling time zone into station_master gem
+        StationMaster::Schedule.find_station_departures(station_code, Time.now.in_time_zone(StationMaster::TIME_ZONE))
+          .select { |schedule| schedule.time >= Time.now.in_time_zone(StationMaster::TIME_ZONE) }
           .sort!{ |a, b| a.time <=> b.time }
           .first(entries_count)
       end
@@ -29,8 +29,8 @@ module Services
       end
 
       def call!
-        StationMaster::Schedule.find_station_arrivals(station_code)
-          .select { |schedule| schedule.time >= Time.now.in_time_zone(StationMaster::TIME_ZONE) } # workaround! TODO  raise decoupling by handling time zone into station_master gem
+        StationMaster::Schedule.find_station_arrivals(station_code, Time.now.in_time_zone(StationMaster::TIME_ZONE))
+          .select { |schedule| schedule.time >= Time.now.in_time_zone(StationMaster::TIME_ZONE) }
           .sort!{ |a, b| a.time <=> b.time }
           .first(entries_count)
       end
