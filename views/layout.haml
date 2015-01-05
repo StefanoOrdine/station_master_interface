@@ -45,8 +45,6 @@
         %link{ :rel => "stylesheet", :href=>"//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" }/
         
         %link{ :rel => "stylesheet", :href => "/css/layout.css" }/
-        - if env['REQUEST_PATH'] =~ /\/show/
-            %link{ :rel => "stylesheet", :href => "/css/schedule.css" }/
 
         -# JS
         -# ==========================================================================
@@ -74,8 +72,8 @@
         -# Custom JS
 
         %script{:src => "/javascripts/layout.js"}
-        - if env['REQUEST_PATH'] =~ /\/show/
-            %script{:src => "/javascripts/schedule.js"}
+        %script{:src => "/javascripts/schedule.js"}
+
         -#
         -# Asynchronous Google Analytics
         -# Change UA-XXXXX-X to be your site's ID
