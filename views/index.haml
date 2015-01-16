@@ -1,3 +1,20 @@
+%nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      %a.navbar-brand{:href => "#header"} Train Station Diplay Simulator
+
+    %ul.nav.navbar-nav
+      %li
+        %a{:href => "#what-is-it"} Cos'è?
+      %li
+        %a{:href => "#how-does-it-work"} Come si usa?
+      %li
+        %a{:href => "#donate"} Bello!
+      %li
+        %a{:href => "#under-the-hood"} ...per i NERD
+
+
+
 %header#header
   .container
     %form{role: 'form', action:'show'}
@@ -43,16 +60,27 @@
       .header__footer
         .row
           .col-md-12
-            %a{:href => "#how-does-it-work"}
+            %a{:href => "#what-is-it"}
               %i.fa.fa-chevron-down.fa-2x
+
+%section#what-is-it
+  .container
+    .row
+      .col-lg-12
+        %h2.text-center Che cos'è?
+        %p.lead
+          Train Station Display Simulator permette di disporre di un display per gli orari del tutto simile a quelli presenti nelle stazioni ferroviarie italiane. E' rivolto ad appassionati di modellismo ferroviario che vogliano aggiungere un tocco simulativo e realistico alla propria rappresentazione modellistica ferroviaria.
+    .how-does-it-work__footer
+      .row
+        .col-md-12
+          %a{:href => "#how-does-it-work"}
+            %i.fa.fa-chevron-down.fa-2x.white
 
 %section#how-does-it-work
   .container
     .row
       .col-lg-12
         %h2.text-center Come funziona?
-        %p.lead
-          Train Station Display Simulator permette di disporre di un display per gli orari del tutto simile a quelli presenti nelle stazioni ferroviarie italiane. E' rivolto ad appassionati di modellismo ferroviario che vogliano aggiungere un tocco simulativo e realistico alla propria rappresentazione modellistica ferroviaria.
         %p.lead
           Per ottenere il proprio display degli orari personalizzato è sufficiente selezionare il tipo di interfaccia desiderata:
         %img{src: '/images/step1.png', width: '400px'}
@@ -68,10 +96,28 @@
     .how-does-it-work__footer
       .row
         .col-md-12
-          %a{:href => "#header"}
-            %i.fa.fa-chevron-up.fa-2x
+          %a{:href => "#under-the-hood"}
+            %i.fa.fa-chevron-down.fa-2x
 
-
+%section#donate
+  .container
+    .row
+      .col-lg-12.text-center
+        %h2 Mi piace Train Station Display Simulator!
+        %p.lead
+          Vorrei supportare lo
+          %a{href: 'https://github.com/StefanoOrdine'} sviluppatore
+          con una donazione.
+        %form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post", :target => "_top"}
+          %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}/
+          %input{:name => "encrypted", :type => "hidden", :value => "-----BEGIN PKCS7-----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-----END PKCS7-----\n"}/
+          %input{:alt => "PayPal - Il metodo rapido, affidabile e innovativo per pagare e farsi pagare.", :border => "0", :name => "submit", :src => "https://www.paypalobjects.com/it_IT/IT/i/btn/btn_donateCC_LG.gif", :type => "image"}/
+          %img{:alt => "", :border => "0", :height => "1", :src => "https://www.paypalobjects.com/it_IT/i/scr/pixel.gif", :width => "1"}/
+    .donate__footer
+      .row
+        .col-md-12
+          %a{:href => "#under-the-hood"}
+            %i.fa.fa-chevron-down.fa-2x.white
 
 %section#under-the-hood
   .container
@@ -97,26 +143,6 @@
                 station_master
               gemma Ruby.
     .under-the-hood__footer
-      .row
-        .col-md-12
-          %a{:href => "#header"}
-            %i.fa.fa-chevron-up.fa-2x
-
-%section#donate
-  .container
-    .row
-      .col-lg-12.text-center
-        %h2 Mi piace Train Station Display Simulator!
-        %p.lead
-          Vorrei supportare lo
-          %a{href: 'https://github.com/StefanoOrdine'} sviluppatore
-          con una donazione.
-        %form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post", :target => "_top"}
-          %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}/
-          %input{:name => "encrypted", :type => "hidden", :value => "-----BEGIN PKCS7-----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-----END PKCS7-----\n"}/
-          %input{:alt => "PayPal - Il metodo rapido, affidabile e innovativo per pagare e farsi pagare.", :border => "0", :name => "submit", :src => "https://www.paypalobjects.com/it_IT/IT/i/btn/btn_donateCC_LG.gif", :type => "image"}/
-          %img{:alt => "", :border => "0", :height => "1", :src => "https://www.paypalobjects.com/it_IT/i/scr/pixel.gif", :width => "1"}/
-    .donate__footer
       .row
         .col-md-12
           %a{:href => "#header"}
